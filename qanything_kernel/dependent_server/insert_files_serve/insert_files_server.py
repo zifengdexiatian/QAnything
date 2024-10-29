@@ -111,7 +111,6 @@ async def process_data(retriever, milvus_kb, mysql_client, file_info, time_recor
         insert_time = time.perf_counter()
         time_record.update(insert_time_record)
         insert_logger.info(f'insert time: {insert_time - start}')
-        mysql_client.update_chunks_number(local_file.file_id, chunks_number)
     except asyncio.TimeoutError:
         insert_logger.error(f'Timeout: milvus insert took longer than {insert_timeout_seconds} seconds')
         expr = f'file_id == \"{local_file.file_id}\"'

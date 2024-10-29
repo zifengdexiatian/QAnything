@@ -460,7 +460,7 @@ class KnowledgeBaseManager:
 
     #  更新file中的chunk_number
     def update_chunks_number(self, file_id, chunks_number):
-        query = "UPDATE File SET chunk_size = %s WHERE file_id = %s"
+        query = "UPDATE File SET chunks_number = %s WHERE file_id = %s"
         self.execute_query_(query, (chunks_number, file_id), commit=True)
 
     def update_file_status(self, file_id, status):
